@@ -1,1 +1,8 @@
   thomas  bojsen  10
+  hej  dig  10
+  ja  nej  8
+  ss  w  1
+  ss  s  2
+  hej  nej  10
+  hej  thonas  12
+  aaaaaaaaaaaa  w2  11

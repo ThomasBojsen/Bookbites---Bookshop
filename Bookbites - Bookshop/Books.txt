@@ -3,3 +3,4 @@
   thomas  bojsen  2
   thomas  bojsen  10
   thomas  bojsen  10
+  thomas  hjalte  8

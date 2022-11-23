@@ -252,6 +252,7 @@ void adminMenu();
 
 // options er her tilsvarende til selve menuerne
 void AdminOptions();
+void GuestOptions();
 void DeleteOptions();
 void SearchOptions();
 void AddBooksOptions();
@@ -442,8 +443,26 @@ int main()
 			{
 				system("cls");
 			case 1:SelBookSys = 1; break;
-			case 2:SelBookSys = 2; break;
-			case 3:SelBookSys = 3; break;
+			case 2:SelBookSys = 2; 
+				cout << "\n\t Please enter the staff username : ";
+				cin >> User;
+				password = getpass("Please enter the password : ", true);
+				staff(User, password);
+
+				GuestOptions();
+				adminMenu();
+
+				system("cls");
+				goto menu; break;
+			case 3:SelBookSys = 3; 	
+				User = "Guest";
+				password = "guest2";
+				staff(User, password);
+
+				AdminOptions();
+				adminMenu();
+				system("cls");
+				goto menu; break;
 			case 0:
 			{system("pause"); return 1; }break;
 			default: cout << "\n\tInvalid selection... try agian.";
@@ -557,8 +576,6 @@ int main()
 							Logic();
 							Sleep(10);
 						}
-						system("cls");
-
 						cout << "\n\n Enter your name : ";
 						cin >> firstName;
 						cout << "\n\n Enter your last name : ";
@@ -569,8 +586,10 @@ int main()
 						Highscore.open("Highscore.txt", ios::out | ios::app);
 						Highscore << "  " << firstName << "  " << lastName << "  " << score << "\n";
 						Highscore.close();
-						goto menu;
+						system("cls");
+
 						break;
+						goto menu;
 					case 2:SelSnakeMenu = 2; break;
 					case 3:SelSnakeMenu = 3; break;
 					case 0:
@@ -659,7 +678,18 @@ int main()
 									Logic();
 									Sleep(10);
 								}
+								cout << "\n\n Enter your name : ";
+								cin >> firstName;
+								cout << "\n\n Enter your last name : ";
+								cin >> lastName;
+								cout << "\n\n Enter score : ";
+								cin >> score;
+
+								Highscore.open("Highscore.txt", ios::out | ios::app);
+								Highscore << "  " << firstName << "  " << lastName << "  " << score << "\n";
+								Highscore.close();
 								system("cls");
+								break;
 								goto menu;
 						}
 						else if (SelDiffiMenu == 2)
@@ -675,8 +705,18 @@ int main()
 								Logic();
 								Sleep(10);
 							}
+							cout << "\n\n Enter your name : ";
+							cin >> firstName;
+							cout << "\n\n Enter your last name : ";
+							cin >> lastName;
+							cout << "\n\n Enter score : ";
+							cin >> score;
 
+							Highscore.open("Highscore.txt", ios::out | ios::app);
+							Highscore << "  " << firstName << "  " << lastName << "  " << score << "\n";
+							Highscore.close();
 							system("cls");
+							break;
 							goto menu;
 						}
 						else if (SelDiffiMenu == 3)
@@ -692,8 +732,18 @@ int main()
 								Logic();
 								Sleep(10);
 							}
+							cout << "\n\n Enter your name : ";
+							cin >> firstName;
+							cout << "\n\n Enter your last name : ";
+							cin >> lastName;
+							cout << "\n\n Enter score : ";
+							cin >> score;
 
+							Highscore.open("Highscore.txt", ios::out | ios::app);
+							Highscore << "  " << firstName << "  " << lastName << "  " << score << "\n";
+							Highscore.close();
 							system("cls");
+							break;
 							goto menu;
 						}
 
@@ -733,13 +783,27 @@ void AdminOptions()
 	system("pause");
 	system("cls");
 
-	cout << "\n\n\tWELCOME TO ADMIN MENU" << endl;
+	cout << "\n\n\tWELCOME TO THE ADMIN MENU" << endl;
 	cout << "\t=========================" << endl;
 	cout << "\n\t1 : ADD NEW BOOKS" << endl;
 	cout << "\n\t2 : DISPLAY ALL BOOKS" << endl;
 	cout << "\n\t3 : (DELETE BOOKS)" << endl;
 	cout << "\n\t0 : RETURN TO MAIN MENU" << endl;
 }
+
+void GuestOptions()
+{
+	system("pause");
+	system("cls");
+
+	cout << "\n\n\tWELCOME TO THE GUEST MENU" << endl;
+	cout << "\t=========================" << endl;
+	cout << "\n\t1 : ADD NEW BOOKS" << endl;
+	cout << "\n\t2 : DISPLAY ALL BOOKS" << endl;
+	cout << "\n\t3 : (DELETE BOOKS)" << endl;
+	cout << "\n\t0 : RETURN TO MAIN MENU" << endl;
+}
+
 
 //Menu med ADD NEW BOOKS, Sel = 1
 void AddBooksOptions()
@@ -994,6 +1058,7 @@ void adminMenu()
 						}
 						system("pause");
 						file.close();
+						return;
 						
 					}
 
@@ -1071,7 +1136,7 @@ void adminMenu()
 						}
 						system("pause");
 						file.close();
-						break;
+						return;
 					}
 				} while (dispops != 0);
 			}
